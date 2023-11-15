@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CRUD de Aparelhos</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+        <style>
+            th, td {
+                border: 1px solid black;
+                padding: 8px;
+            }
+            .container {
+                text-align: center;
+                margin-top: 50px;
+            }
+        </style>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        <div class="container">
+        <h1>CRUD de Aparelhos</h1>
+        <div class="btn-group" role="group" aria-label="Modo Claro/Escuro">
+            <button type="button" class="btn btn-light" onclick="switchToLightMode()">Modo Claro</button>
+            <button type="button" class="btn btn-dark" onclick="switchToDarkMode()">Modo Escuro</button>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+        <div id="Cadastro" style="display: none;">
+            <h2>Novo Item</h2>
+            <form id="AparelhoForm" style="max-width: 400px; margin: 0 auto;">
+                <label for="Nome">Nome: </label>
+                <input type="text" id="Nome" name="Nome" required><br>
+                <label for="Marca">Marca: </label>
+                <input type="text" id="Marca" name="Marca" required><br>
+                <label for="Modelo">Modelo: </label>
+                <input type="text" id="Modelo" name="Modelo" required><br>
+                <label for="Tipo">Tipo: </label>
+                <select id="Tipo" name="Tipo">
+                  <option value="Celular">Celular</option>
+                  <option value="Notebook">Notebook</option>
+                  <option value="Tablet">Tablet</option>
+                  <option value="Outro">Outro</option>
+                </select><br>
+                <label for="Condicao">Condição: </label>
+                <input type="radio" name="Condicao" value="Novo" checked> Novo
+                <input type="radio" name="Condicao" value="Usado"> Usado<br>
+                <label for="Quantidade">Quantidade: </label>
+                <input type="number" id="Quantidade" name="Quantidade" value="1" min="1"><br>
+                <label for="Diferenciais">Diferenciais: </label><br>
+                <input type="checkbox" id="Wifi" name="Diferenciais" value="Wifi">
+                <label for="Wifi">Wi-Fi</label><br>
+                <input type="checkbox" id="Bluetooth" name="Diferenciais" value="Bluetooth">
+                <label for="Bluetooth">Bluetooth</label><br>
+                <input type="checkbox" id="Gps" name="Diferenciais" value="Gps">
+                <label for="Gps">GPS</label><br>
+                
+                <button type="button" onclick="Cadastrar()">Cadastrar</button>
+                <button type="reset">Limpar</button>
+            </form>
+        </div>
+    </div>
+       <div class="container">
+        <button type="button" onclick="VisualizarCadastro()">Novo Item</button>
+       </div>
+         
+      <div class="container">
+        <h2>Listagem de Aparelhos</h2>
+        <table id="AparelhoTable" class="table" style="max-width: 600px; margin: 0 auto;">
+          <thead class="thead-light">
+            <tr>
+                <th>Nome</th>
+                <th>Marca</th>
+                <th>Modelo</th>
+                <th>Tipo</th>
+                <th>Condição</th>
+                <th>Quantidade</th>
+                <th>Diferenciais</th>
+                <th>Testes</th>
+                <th>Editar</th>
+                <th>Remover</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>  
+
+        <script type="text/javascript" src="BancoDeDados.js"></script>
+        <script>
+            function switchToLightMode() {
+                document.body.classList.remove("bg-dark");
+                document.body.classList.remove("text-white");
+            }
+
+            function switchToDarkMode() {
+                document.body.classList.add("bg-dark");
+                document.body.classList.add("text-white");
+            }
+        </script>
+    </body>
+</html>
